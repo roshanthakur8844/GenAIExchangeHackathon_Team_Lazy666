@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MindGuard — Hackathon Prototype</title>
+<meta name="theme-color" content="#b7d4ff"/>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Ribbon background -->
+<canvas class="bg" id="bg"></canvas>
+
+
+<div class="shell">
+  <header><div class="badge">🌿 MindGuard — Hackathon Prototype</div></header>
+  <main>
+    <!-- Mindful Flow Zone -->
+    <section class="card flow">
+      <div class="orbWrap">
+        <div class="aura"></div>
+        <div class="orb" id="orb"></div>
+      </div>
+      <div class="flowText">
+        <div class="title">Mindful Flow Zone</div>
+        <div class="sub">The orb breathes with you. When the glow grows, inhale; when it softens, exhale.</div>
+        <div class="chips">
+          <div class="chip">Auto ambience</div>
+          <div class="chip">AI break cues</div>
+          <div class="chip">Breath-synced tone</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Chat -->
+    <section class="card">
+      <div style="font-weight:800; margin-bottom:6px">🤖 AI Wellness Coach</div>
+      <div class="chat">
+        <div class="chat-head">Gemini Assistant</div>
+        <div id="msgs" class="msgs">
+          <div class="msg ai">Welcome. I’ll help you pause and recharge. Ask me anything—or just say “I’m doomscrolling.”</div>
+        </div>
+        <div class="chat-input">
+          <input id="inp" type="text" placeholder="Type here…"/>
+          <button class="send" id="send" type="button">➤</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Relax Zone -->
+    <section class="card relax">
+      <canvas id="waves"></canvas>
+      <div class="soundLabel" id="soundLabel">🌊 Ocean ambience</div>
+      <div class="tip" id="tip">Take a gentle inhale for 4, soften your shoulders, exhale for 6.</div>
+    </section>
+  </main>
+
+  <nav>
+    <button class="tab active" id="tab-chat" type="button">💬 Coach</button>
+    <button class="tab" id="tab-break" type="button">🛑 Break</button>
+  </nav>
+  <div class="disclaimer">⚡ Hackathon Prototype — Not a final product</div>
+</div>
+
+<!-- Break Overlay -->
+<div id="overlay" class="overlay" aria-hidden="true">
+  <div class="o-card">
+    <h2>🚫 Digital Pause</h2>
+    <p style="opacity:.85">60-second mindful reset. Breathe with the ring.</p>
+    <div id="meter" class="meter" style="--p:0%"></div>
+    <div id="count" class="count">60</div>
+    <div class="o-actions">
+      <button id="skip" class="btn" disabled type="button">Skip (10)</button>
+      <button id="done" class="btn primary" disabled type="button">I’m calm ✓</button>
+    </div>
+    <!-- Ambient + cues -->
+    <audio id="amb-ocean" loop src="https://cdn.pixabay.com/download/audio/2022/01/06/audio_7b39c73992.mp3?filename=ocean-waves-ambient-10104.mp3"></audio>
+    <audio id="amb-rain"  loop src="https://cdn.pixabay.com/download/audio/2021/09/16/audio_4c3c5a3a50.mp3?filename=light-rain-ambient-8973.mp3"></audio>
+    <audio id="amb-bowls" loop src="https://cdn.pixabay.com/download/audio/2022/03/23/audio_8b0b3d5984.mp3?filename=healing-meditation-112199.mp3"></audio>
+    <audio id="chime" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_463b8c1e39.mp3?filename=soft-bell-111163.mp3"></audio>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
